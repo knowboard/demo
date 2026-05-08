@@ -1,0 +1,8 @@
+PREFIX schema: <http://schema.org/>
+
+SELECT ?name ?status WHERE {
+  ?project a schema:Project ;
+    schema:name ?name ;
+    schema:status ?status .
+}
+ORDER BY ?status ?name

@@ -1,0 +1,9 @@
+PREFIX schema: <http://schema.org/>
+
+SELECT ?type ?name WHERE {
+  ?resource a ?type ;
+    schema:name ?name ;
+    schema:status "Unread" .
+  FILTER(?type IN (schema:Book, schema:Article))
+}
+ORDER BY ?type ?name

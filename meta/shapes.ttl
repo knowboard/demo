@@ -1,0 +1,129 @@
+@prefix : <https://knowboard.github.io/demo/meta#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ProjectShape a sh:NodeShape ;
+  sh:targetClass schema:Project ;
+  sh:property [
+    sh:path schema:name ;
+    dash:propertyRole dash:LabelRole ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path :icon ;
+    dash:propertyRole dash:IconRole ;
+    sh:defaultValue "📁" ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path schema:description ;
+    dash:propertyRole dash:DescriptionRole ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path schema:status ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:minCount 1 ;
+    sh:in ( "New" "Active" "Done" ) ;
+  ] ;
+  sh:property [
+    sh:path schema:about ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:nodeKind sh:IRI ;
+  ] .
+
+:BookShape a sh:NodeShape ;
+  sh:targetClass schema:Book ;
+  sh:property [
+    sh:path schema:name ;
+    dash:propertyRole dash:LabelRole ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path :icon ;
+    dash:propertyRole dash:IconRole ;
+    sh:defaultValue "📘" ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path schema:status ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:minCount 1 ;
+    sh:in ( "Unread" "Read" ) ;
+  ] ;
+  sh:property [
+    sh:path schema:about ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    sh:path schema:author ;
+    sh:class schema:Person ;
+  ] .
+
+:ArticleShape a sh:NodeShape ;
+  sh:targetClass schema:Article ;
+  sh:property [
+    sh:path schema:name ;
+    dash:propertyRole dash:LabelRole ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path :icon ;
+    dash:propertyRole dash:IconRole ;
+    sh:defaultValue "📰" ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path schema:description ;
+    dash:propertyRole dash:DescriptionRole ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path schema:status ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:minCount 1 ;
+    sh:in ( "Unread" "Read" ) ;
+  ] ;
+  sh:property [
+    sh:path schema:about ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    sh:path schema:url ;
+    dash:propertyRole dash:KeyInfoRole ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+  ] .
+
+:TopicShape a sh:NodeShape ;
+  sh:targetClass schema:DefinedTerm ;
+  sh:property [
+    sh:path schema:name ;
+    dash:propertyRole dash:LabelRole ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path :icon ;
+    dash:propertyRole dash:IconRole ;
+    sh:defaultValue "🏷️" ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path schema:description ;
+    dash:propertyRole dash:DescriptionRole ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .

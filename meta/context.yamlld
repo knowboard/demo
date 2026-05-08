@@ -1,0 +1,21 @@
+"@context":
+  "@vocab": "http://schema.org/"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+
+  demo: "https://knowboard.github.io/demo/"
+
+  icon: "demo:meta#icon"
+
+  about:
+    "@type": "@id"
+    "@container": "@set"
+
+  author:
+    "@type": "Person"
+    "@container": "@set"
+
+  datePublished:
+    "@type": "xsd:date"
+
+  dateModified:
+    "@type": "xsd:date"

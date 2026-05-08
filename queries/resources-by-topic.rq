@@ -1,0 +1,13 @@
+PREFIX schema: <http://schema.org/>
+
+SELECT ?topicName ?resourceName ?resourceType WHERE {
+  ?topic a schema:DefinedTerm ;
+    schema:name ?topicName .
+
+  ?resource a ?resourceType ;
+    schema:name ?resourceName ;
+    schema:about ?topic .
+
+  FILTER(?resourceType IN (schema:Project, schema:Book, schema:Article))
+}
+ORDER BY ?topicName ?resourceType ?resourceName

@@ -1,0 +1,6 @@
+base_uri = "https://knowboard.github.io/demo/"
+include = ["**/*.md", "**/*.yamlld", "**/*.ttl"]
+exclude = [".git/**"]
+
+[sparql_server]
+listen = "27878"

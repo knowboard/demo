@@ -1,0 +1,16 @@
+PREFIX schema: <http://schema.org/>
+
+SELECT DISTINCT ?projectName ?topicName ?readingName WHERE {
+  ?project a schema:Project ;
+    schema:name ?projectName ;
+    schema:about ?topic .
+
+  ?topic schema:name ?topicName .
+
+  ?reading a ?readingType ;
+    schema:name ?readingName ;
+    schema:about ?topic .
+
+  FILTER(?readingType IN (schema:Book, schema:Article))
+}
+ORDER BY ?projectName ?topicName ?readingType ?readingName
