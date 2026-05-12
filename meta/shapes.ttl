@@ -4,14 +4,21 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+:namePropertyShape a sh:PropertyShape ;
+  sh:path schema:name ;
+  dash:propertyRole dash:LabelRole ;
+  sh:minCount 1 ;
+  sh:datatype xsd:string .
+
+:descriptionPropertyShape a sh:PropertyShape ;
+  sh:path schema:description ;
+  dash:propertyRole dash:DescriptionRole ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string .
+
 :ProjectShape a sh:NodeShape ;
   sh:targetClass schema:Project ;
-  sh:property [
-    sh:path schema:name ;
-    dash:propertyRole dash:LabelRole ;
-    sh:minCount 1 ;
-    sh:datatype xsd:string ;
-  ] ;
+  sh:property :namePropertyShape ;
   sh:property [
     sh:path :icon ;
     dash:propertyRole dash:IconRole ;
@@ -19,32 +26,27 @@
     sh:maxCount 1 ;
     sh:datatype xsd:string ;
   ] ;
-  sh:property [
-    sh:path schema:description ;
-    dash:propertyRole dash:DescriptionRole ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:string ;
-  ] ;
+  sh:property :descriptionPropertyShape ;
   sh:property [
     sh:path schema:status ;
+    sh:name "Status" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:minCount 1 ;
     sh:in ( "New" "Active" "Done" ) ;
+    sh:order 1 ;
   ] ;
   sh:property [
     sh:path schema:about ;
+    sh:name "Topics" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:nodeKind sh:IRI ;
+    sh:class schema:DefinedTerm ;
+    sh:order 2 ;
   ] .
 
 :BookShape a sh:NodeShape ;
   sh:targetClass schema:Book ;
-  sh:property [
-    sh:path schema:name ;
-    dash:propertyRole dash:LabelRole ;
-    sh:minCount 1 ;
-    sh:datatype xsd:string ;
-  ] ;
+  sh:property :namePropertyShape ;
   sh:property [
     sh:path :icon ;
     dash:propertyRole dash:IconRole ;
@@ -54,14 +56,19 @@
   ] ;
   sh:property [
     sh:path schema:status ;
+    sh:name "Status" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:minCount 1 ;
     sh:in ( "Unread" "Read" ) ;
+    sh:order 1 ;
   ] ;
   sh:property [
     sh:path schema:about ;
+    sh:name "Topics" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:nodeKind sh:IRI ;
+    sh:class schema:DefinedTerm ;
+    sh:order 2 ;
   ] ;
   sh:property [
     sh:path schema:author ;
@@ -70,12 +77,7 @@
 
 :ArticleShape a sh:NodeShape ;
   sh:targetClass schema:Article ;
-  sh:property [
-    sh:path schema:name ;
-    dash:propertyRole dash:LabelRole ;
-    sh:minCount 1 ;
-    sh:datatype xsd:string ;
-  ] ;
+  sh:property :namePropertyShape ;
   sh:property [
     sh:path :icon ;
     dash:propertyRole dash:IconRole ;
@@ -83,37 +85,35 @@
     sh:maxCount 1 ;
     sh:datatype xsd:string ;
   ] ;
-  sh:property [
-    sh:path schema:description ;
-    dash:propertyRole dash:DescriptionRole ;
-    sh:datatype xsd:string ;
-  ] ;
+  sh:property :descriptionPropertyShape ;
   sh:property [
     sh:path schema:status ;
+    sh:name "Status" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:minCount 1 ;
     sh:in ( "Unread" "Read" ) ;
+    sh:order 1 ;
   ] ;
   sh:property [
     sh:path schema:about ;
+    sh:name "Topics" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:nodeKind sh:IRI ;
+    sh:class schema:DefinedTerm ;
+    sh:order 2 ;
   ] ;
   sh:property [
     sh:path schema:url ;
+    sh:name "Link" ;
     dash:propertyRole dash:KeyInfoRole ;
     sh:maxCount 1 ;
     sh:nodeKind sh:IRI ;
+    sh:order 3 ;
   ] .
 
 :TopicShape a sh:NodeShape ;
   sh:targetClass schema:DefinedTerm ;
-  sh:property [
-    sh:path schema:name ;
-    dash:propertyRole dash:LabelRole ;
-    sh:minCount 1 ;
-    sh:datatype xsd:string ;
-  ] ;
+  sh:property :namePropertyShape ;
   sh:property [
     sh:path :icon ;
     dash:propertyRole dash:IconRole ;
@@ -121,9 +121,4 @@
     sh:maxCount 1 ;
     sh:datatype xsd:string ;
   ] ;
-  sh:property [
-    sh:path schema:description ;
-    dash:propertyRole dash:DescriptionRole ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:string ;
-  ] .
+  sh:property :descriptionPropertyShape .
