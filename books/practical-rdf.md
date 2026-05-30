@@ -3,6 +3,7 @@
 "@type": "Book"
 name: "Practical RDF"
 author:
+  "@type": Person
   name: "Shelley Powers"
 status: "Unread"
 about:

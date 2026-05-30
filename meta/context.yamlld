@@ -19,3 +19,6 @@
 
   dateModified:
     "@type": "xsd:date"
+
+  url:
+    "@type": "@id"

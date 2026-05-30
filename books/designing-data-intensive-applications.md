@@ -3,8 +3,10 @@
 "@type": "Book"
 name: "Designing Data-Intensive Applications"
 author:
-  - name: Martin Kleppmann
-  - name: Chris Riccomini
+  - "@type": Person
+    name: Martin Kleppmann
+  - "@type": Person
+    name: Chris Riccomini
 status: "Read"
 about:
   - "demo:topics/knowledge-graphs"

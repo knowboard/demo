@@ -3,6 +3,7 @@
 "@type": "Book"
 name: "Learning SPARQL"
 author:
+  "@type": Person
   name: "Bob DuCharme"
 status: "Read"
 about:
