@@ -3,4 +3,4 @@ include = ["**/*.md", "**/*.yamlld", "**/*.ttl"]
 exclude = [".git/**"]
 
 [sparql_server]
-listen = "27878"
+listen = "auto"
